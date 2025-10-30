@@ -41,16 +41,17 @@ later(
 add { source = "kylechui/nvim-surround" }
 later(function () require("nvim-surround").setup() end)
 
-add { source = "ficd0/ashen.nvim" }
-now(function () require("ashen").load() end)
+add { source = "miikanissi/modus-themes.nvim" }
+now(function ()
+  require("modus-themes").setup { style = "vivendi" }
+  vim.cmd.colorscheme "modus"
+end)
 
-add { source = "nvim-lualine/lualine.nvim", depends = { "ficd0/ashen.nvim" } }
+add { source = "nvim-lualine/lualine.nvim" }
 later(function ()
-  local ashen = require("ashen.plugins.lualine").lualine_opts
-  ashen.extensions = { "lazy", "fzf" }
-  ashen.options.section_separators = ""
-  ashen.options.component_separators = ""
-  require("lualine").setup(ashen)
+  require("lualine").setup {
+    options = { section_separators = "", component_separators = "" },
+  }
 end)
 
 add { source = "numToStr/FTerm.nvim" }
