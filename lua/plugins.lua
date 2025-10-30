@@ -41,6 +41,9 @@ later(
 add { source = "kylechui/nvim-surround" }
 later(function () require("nvim-surround").setup() end)
 
+add { source = "numToStr/Comment.nvim" }
+later(function () require("Comment").setup() end)
+
 add { source = "miikanissi/modus-themes.nvim" }
 now(function ()
   require("modus-themes").setup { style = "vivendi" }
