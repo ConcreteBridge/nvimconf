@@ -48,3 +48,11 @@ map(
   function () require("fzf-lua").zoxide() end,
   { desc = "zoxide" }
 )
+
+map("n", "<leader>t", "", { desc = "+Terminal" })
+map(
+  "n",
+  "<leader>tj",
+  function () require("FTerm").scratch { cmd = { "just" } } end,
+  { desc = "<cmd>just" }
+)
