@@ -54,5 +54,11 @@ map(
   "n",
   "<leader>tj",
   function () require("FTerm").scratch { cmd = { "just" } } end,
-  { desc = "<cmd>just" }
+  { desc = "just" }
+)
+map(
+  "n",
+  "<leader>tl",
+  function () require("FTerm").scratch { cmd = { "lazygit" } } end,
+  { desc = "lazygit" }
 )
