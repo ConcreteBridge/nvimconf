@@ -20,8 +20,7 @@ later(function () require("blink.cmp").setup() end)
 add { source = "dgagn/diagflow.nvim" }
 later(function () require("diagflow").setup() end)
 
-add { source = "lewis6991/gitsigns.nvim" }
-later(function () require("gitsigns").setup() end)
+add { source = "mhinz/vim-signify" }
 
 add {
   source = "nvim-treesitter/nvim-treesitter",
@@ -51,11 +50,13 @@ now(function ()
 end)
 
 add { source = "nvim-lualine/lualine.nvim" }
-later(function ()
-  require("lualine").setup {
-    options = { section_separators = "", component_separators = "" },
-  }
-end)
+later(
+  function ()
+    require("lualine").setup {
+      options = { section_separators = "", component_separators = "" },
+    }
+  end
+)
 
 add { source = "numToStr/FTerm.nvim" }
 
