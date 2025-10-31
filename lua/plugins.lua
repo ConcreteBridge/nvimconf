@@ -43,17 +43,21 @@ later(function () require("nvim-surround").setup() end)
 add { source = "numToStr/Comment.nvim" }
 later(function () require("Comment").setup() end)
 
-add { source = "miikanissi/modus-themes.nvim" }
+add { source = "olivercederborg/poimandres.nvim" }
 now(function ()
-  require("modus-themes").setup { style = "vivendi" }
-  vim.cmd.colorscheme "modus"
+  require("poimandres").setup { groups = { background = "#000000" } }
+  vim.cmd.colorscheme "poimandres"
 end)
 
 add { source = "nvim-lualine/lualine.nvim" }
 later(
   function ()
     require("lualine").setup {
-      options = { section_separators = "", component_separators = "" },
+      options = {
+        theme = "poimandres",
+        section_separators = "",
+        component_separators = "",
+      },
     }
   end
 )
