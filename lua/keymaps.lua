@@ -6,6 +6,7 @@ map("n", "<leader>g", function () require("fzf-lua").live_grep_native() end, { d
 map("v", "<leader>g", function () require("fzf-lua").grep_cword() end, { desc = "grep word" })
 map("n", "<leader>l", function () require("fzf-lua").lines() end, { desc = "lines" })
 map("n", "<leader>o", function () require("fzf-lua").oldfiles() end, { desc = "oldfiles" })
+map("n", "<leader>d", function () require("fzf-lua").diagnostics_workspace() end, { desc = "diagnostics" })
 map("n", "<leader>z", function () require("fzf-lua").zoxide() end, { desc = "zoxide" })
 
 map("n", "<leader>t", "", { desc = "+Terminal" })
