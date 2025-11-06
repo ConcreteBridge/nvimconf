@@ -69,21 +69,18 @@ later(function () require("nvim-surround").setup() end)
 add { source = "numToStr/Comment.nvim" }
 later(function () require("Comment").setup() end)
 
-add { source = "olivercederborg/poimandres.nvim" }
-now(function ()
-  require("poimandres").setup { groups = { background = "#000000" } }
-  vim.cmd.colorscheme "poimandres"
-end)
+add { source = "miikanissi/modus-themes.nvim" }
+now(function () vim.cmd.colorscheme "modus_operandi" end)
+
+add { source = "willothy/nvim-cokeline", depends = { "nvim-lua/plenary.nvim" } }
+later(function () require("cokeline").setup() end)
 
 add { source = "nvim-lualine/lualine.nvim" }
 later(
   function ()
     require("lualine").setup {
-      options = {
-        theme = "poimandres",
-        section_separators = "",
-        component_separators = "",
-      },
+      options = { section_separators = "", component_separators = "" },
+      sections = { lualine_c = {} },
     }
   end
 )
