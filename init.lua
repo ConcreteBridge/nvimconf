@@ -11,11 +11,14 @@ g.mapleader = ";"
 g.maplocalleader = ","
 
 opt.breakindent = true
+opt.expandtab = true
 opt.foldlevel = 99
 opt.gdefault = true
 opt.ignorecase = true
 opt.linebreak = true
 opt.number = true
+opt.scrolloff = 3
+opt.signcolumn = 'yes:1'
 opt.smartcase = true
 opt.swapfile = false
 opt.undofile = true
