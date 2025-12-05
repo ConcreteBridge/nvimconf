@@ -12,11 +12,15 @@ g.maplocalleader = ","
 
 opt.breakindent = true
 opt.foldlevel = 99
+opt.gdefault = true
 opt.ignorecase = true
 opt.linebreak = true
 opt.number = true
 opt.smartcase = true
+opt.swapfile = false
+opt.undofile = true
 opt.wrap = false
+opt.writebackup = false
 
 mapkey("v", "<leader>s", "!sort<cr>", { silent = true })
 mapkey("v", "<leader>u", "!uniq<cr>", { silent = true })
@@ -34,6 +38,8 @@ local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 
 add { source = "blazkowolf/gruber-darker.nvim" }
 now(function () vim.cmd.colorscheme "gruber-darker" end)
+
+add { source = "mhinz/vim-signify" }
 
 add { source = "ibhagwan/fzf-lua" }
 now(function ()
