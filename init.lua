@@ -68,9 +68,9 @@ add {
 now(function ()
   local tree = require "nvim-treesitter"
   tree.setup { install_dir = vim.fn.stdpath "data" .. "/site" }
-  tree.install { "c", "commonlisp", "lua", "mysql" }
+  tree.install { "all" }
   vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "c", "sql", "lisp", "lua" },
+    pattern = tree.get_installed(),
     callback = function () vim.treesitter.start() end,
   })
   vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
