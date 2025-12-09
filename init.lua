@@ -10,6 +10,8 @@ opt.foldlevel = 99
 opt.gdefault = true
 opt.ignorecase = true
 opt.linebreak = true
+opt.list = true
+opt.listchars = { tab = "» ", trail = "•", nbsp = "␣" }
 opt.number = true
 opt.scrolloff = 3
 opt.signcolumn = 'yes:1'
