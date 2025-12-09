@@ -1,9 +1,3 @@
--- require "pre"
--- require "options"
--- require "plugins"
--- require "keymaps"
--- require "post"
-
 --[[ Options ]]
 local g, opt, mapkey = vim.g, vim.opt, vim.keymap.set
 
