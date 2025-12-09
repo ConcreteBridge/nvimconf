@@ -14,7 +14,7 @@ opt.list = true
 opt.listchars = { tab = "» ", trail = "•", nbsp = "␣" }
 opt.number = true
 opt.scrolloff = 3
-opt.signcolumn = 'yes:1'
+opt.signcolumn = "yes:1"
 opt.smartcase = true
 opt.swapfile = false
 opt.undofile = true
