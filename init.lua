@@ -55,22 +55,24 @@ end)
 add { source = "kylechui/nvim-surround" }
 later(function () require("nvim-surround").setup() end)
 
-add {
-  source = "nvim-treesitter/nvim-treesitter",
-  checkout = "main",
-  hooks = {
-    post_checkout = function () vim.cmd "TSUpdate" end,
-  },
-}
-now(function ()
-  local tree = require "nvim-treesitter"
-  tree.setup { install_dir = vim.fn.stdpath "data" .. "/site" }
-  -- tree.install { "all" }
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = tree.get_installed(),
-    callback = function () vim.treesitter.start() end,
-  })
-  vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-  vim.wo.foldmethod = "expr"
-  vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
-end)
+if vim.fn.exectuable("tree-sitter") == 1 then
+  add {
+    source = "nvim-treesitter/nvim-treesitter",
+    checkout = "main",
+    hooks = {
+      post_checkout = function () vim.cmd "TSUpdate" end,
+    },
+  }
+  now(function ()
+    local tree = require "nvim-treesitter"
+    tree.setup { install_dir = vim.fn.stdpath "data" .. "/site" }
+    -- tree.install { "all" }
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = tree.get_installed(),
+      callback = function () vim.treesitter.start() end,
+    })
+    vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    vim.wo.foldmethod = "expr"
+    vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
+  end)
+end
