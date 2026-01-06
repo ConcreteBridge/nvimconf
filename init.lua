@@ -35,8 +35,9 @@ require("mini.deps").setup { path = { package = path_package } }
 
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 
-add { source = "blazkowolf/gruber-darker.nvim" }
-now(function () vim.cmd.colorscheme "gruber-darker" end)
+-- add { source = "blazkowolf/gruber-darker.nvim" }
+-- now(function () vim.cmd.colorscheme "gruber-darker" end)
+vim.cmd.colorscheme "vim"
 
 add { source = "mhinz/vim-signify" }
 
@@ -64,7 +65,7 @@ add {
 now(function ()
   local tree = require "nvim-treesitter"
   tree.setup { install_dir = vim.fn.stdpath "data" .. "/site" }
-  tree.install { "all" }
+  -- tree.install { "all" }
   vim.api.nvim_create_autocmd("FileType", {
     pattern = tree.get_installed(),
     callback = function () vim.treesitter.start() end,
