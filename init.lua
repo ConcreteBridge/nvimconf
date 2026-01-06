@@ -55,7 +55,7 @@ end)
 add { source = "kylechui/nvim-surround" }
 later(function () require("nvim-surround").setup() end)
 
-if vim.fn.exectuable("tree-sitter") == 1 then
+if vim.fn.executable("tree-sitter") == 1 then
   add {
     source = "nvim-treesitter/nvim-treesitter",
     checkout = "main",
