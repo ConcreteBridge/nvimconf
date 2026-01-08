@@ -63,13 +63,13 @@ add {
   },
 }
 now(function ()
+  local filetypes = { "c", "lua", "python" }
   local tree = require "nvim-treesitter"
   tree.setup { install_dir = vim.fn.stdpath "data" .. "/site" }
-  tree.install { "c", "lua", "python" }
-
-  if vim.fn.executable("tree-sitter") == 1 then
+  if vim.fn.executable "tree-sitter" == 1 then
+    tree.install(filetypes)
     vim.api.nvim_create_autocmd("FileType", {
-      pattern = { "c", "lua", "python" },
+      pattern = filetypes,
       callback = function ()
         vim.treesitter.start()
         vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
