@@ -81,18 +81,20 @@ end
 
 require("noirbuddy").setup { preset = "miami-nights" }
 
-local tree = require "nvim-treesitter"
-tree.setup { install_dir = vim.fn.stdpath "data" .. "/site" }
-tree.install { "c", "lua" }
+if vim.fn.executable "tree-sitter" == 1 then
+  local tree = require "nvim-treesitter"
+  tree.setup { install_dir = vim.fn.stdpath "data" .. "/site" }
+  tree.install { "c", "lua" }
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "c", "lua" },
-  callback = function () vim.treesitter.start() end,
-})
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "c", "lua" },
+    callback = function () vim.treesitter.start() end,
+  })
 
-vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.wo.foldmethod = "expr"
-vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
+  vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+  vim.wo.foldmethod = "expr"
+  vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
+end
 
 require("fzf-lua").setup {
   "ivy",
